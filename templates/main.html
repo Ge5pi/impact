@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="static\main.css">
+    <link rel="stylesheet" href="static\header.css">
+</head>
+
+<body>
+  <nav>
+    <div class="wrapper">
+      <div class="logo"><a href="/"><img src="..\..\static\logo_impact.jpg" alt=""></a></div>
+      <ul class="nav-links">
+        <li><a href="/meets-subj1">Консультации</a></li>
+        <li>
+          <a href="/subjects" class="desktop-item">Предметы</a>
+        </li>
+        <li><a href="/faq">FAQ</a></li>
+
+        <li><a href="/notifications">Уведомления</a></li>
+      </ul>
+      <ul class="nav-links">
+          {% if not(current_user.is_authenticated) %}
+      <li><div class="Log"><a href="/index">Вход</a></div></li>
+
+          {% endif %}
+          {% if current_user.is_authenticated %}
+            <li><div><a href="/logout">Выход</a></div></li>
+          {% endif %}
+      </ul>
+    </div>
+  </nav>
+
+  <div class="sec-center">
+    <input class="dropdown" type="checkbox" id="dropdown" name="dropdown"/>
+    <label class="for-dropdown" for="dropdown">Меню<i class="uil uil-arrow-down"></i></label>
+    <div class="section-dropdown">
+      <a href="/main">Главная <i class="uil uil-arrow-right"></i></a>
+      <a href="/meets-subj1">Консультации <i class="uil uil-arrow-right"></i></a>
+      <a href="/subjects">Предметы<i class="uil uil-arrow-right"></i></a>
+      <a href="/faq">FAQ</a>
+      <a href="/notifications">Уведомления</a>
+      {% if not(current_user.is_authenticated) %}
+      <a href="/index">Вход</a>
+      {% endif %}
+      {% if current_user.is_authenticated %}
+      <a href="/logout">Выход</a>
+      {% endif %}
+    </div>
+  </div>
+
+<div class="intro">
+<section class="intro2">
+
+<section class="descript">
+    <h1> Путеводитель в мир знаний </h1>
+    <p> Impact дает возможность ученикам получать качественные материалы</p>
+</section>
+
+<section class = "work-examples-btns">
+    <a href="/subjects"> <button class = "work-examples-btn" id="btn1"> Материалы </button> </a>
+    <a href="/faq">  <button class = "work-examples-btn" id="btn2"> Вопрос-Ответ </button> </a>
+    <a href = "/meets-subj1"> <button class = "work-examples-btn" id="btn3"> Индивидуальные сессии </button> </a>
+</section>
+
+</section>
+<section class="actions">
+    <h2 class="chitai"> Читай материалы на Impact, задавай вопросы и записывайся на индивидуальные консультации </h2>
+    <p> Наша платформа предоставляет возможности подтянуть учебу с минимальными затратами со стороны ученика</p>
+</section>
+
+
+</div>
+
+<h2 class="tchrs"> Учителя: </h2>
+
+<section id="teachers">
+  <div class="teacher-card">
+      <img source="teacher-img1">
+      <h2> Андрей </h2>
+      <p> IELTS </p>
+      <p> band 8.5 </p>
+      <div class="rating">
+        <span class="star">☆</span>
+        <span class="number">5.0</span>
+     </div>   
+  </div>
+  <div class="teacher-card">
+    <img source="teacher-img1">
+    <h2> Арман </h2>
+    <p> SAT </p>
+    <p> 1580/1600</p>
+    <div class="rating">
+      <span class="star">☆</span>
+      <span class="number">5.0</span>
+   </div>   
+  </div>
+  <div class="teacher-card">
+    <img source="teacher-img1">
+    <h2> Сергей </h2>
+    <p> SAT </p>
+    <p> 1600/1600 </p>
+    <div class="rating">
+      <span class="star">☆</span>
+      <span class="number">5.0</span>
+   </div>   
+  </div>
+</section>
+
+
+<section id="testimonials">
+   <div class="testimonial-heading">
+       <span>Отзывы</span>
+       <h1>Clients Say</h1>
+   </div>
+   <div class="testimonial-box-container">
+       <div class="testimonial-box">
+           <div class="box-top">
+               <div class="profile">
+                  <div class="profile-img">
+                      <img src="images/c1.jpg" />
+                  </div>
+                  <div class="name-user">
+                      <strong>Амели</strong>
+                      <span>@dlotsss</span>
+                  </div>
+               </div>
+           </div>
+           <div class="client-comment">
+               <p>Занималась на платформе 2 месяца, улучшила балл до 8.0 , Спасибо!</p>
+           </div>
+       </div>
+       <div class="testimonial-box">
+        <div class="box-top">
+            <div class="profile">
+               <div class="profile-img">
+                   <img src="images/c2.jpg" />
+               </div>
+               <div class="name-user">
+                   <strong>Даниал</strong>
+                   <span>@corti</span>
+               </div>
+            </div>
+        </div>
+        <div class="client-comment">
+            <p>Удобная платформа</p>
+        </div>
+    </div>
+    <div class="testimonial-box">
+      <div class="box-top">
+          <div class="profile">
+             <div class="profile-img">
+                 <img src="images/c3.jpg" />
+             </div>
+             <div class="name-user">
+                 <strong>Слава</strong>
+                 <span>@Gespi</span>
+             </div>
+          </div>
+      </div>
+      <div class="client-comment">
+          <p>Спасибо учителю!</p>
+      </div>
+  </div>
+</div>
+   </div>
+   </div>
+</section>
+
+
+
+
+
+<div class="faq">
+<h2> FAQ </h2>
+<details>
+  <summary>Impact admissions - это? </summary>
+  <p>Impact admissions - компания, которая поможет тебе поступить в ТОПовые университеты мира на грант и получать стипендию </p>
+ </details>
+ 
+ <details>
+  <summary>Какие продукты есть? </summary>
+  <p>1 Подготовка (развитие внешкольных занятий и профайла - 6 месяцев) </p>
+  <p>2 Полное сопровождение (еженедельные встречи)  </p>
+  <p> 3 Курсы SAT и IELTS (3 раза в неделю по 90 минут)  </p>
+ </details>
+
+ <details>
+  <summary>Как проходит подготовка к SAT? </summary>
+  <p>Курс длится 2 месяца по двум предметам (математике и английскому языку). Занятия проходят 3 раза в неделю по 90 минут в мини-группах до 8 человек.  </p>
+ </details>
+
+    <details>
+  <summary>Как проходит подготовка к IELTS?  </summary>
+  <p>Курс длится 2 месяца. Занятия проходят 3 раза в неделю по 90 минут в мини-группах до 8 человек.</p>
+ </details>
+
+</div>
+
+</body>
+</html>
