@@ -4,18 +4,13 @@ from sqlalchemy import create_engine
 from datetime import datetime
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 from forms import LoginForm
-from werkzeug.security import generate_password_hash, check_password_hash
-from flask_mail import Mail, Message
-from flask_wtf.csrf import CSRFProtect
+from werkzeug.security import generate_password_hash
+from flask_mail import Mail
 import pymysql
-import threading
 from threading import Timer
-import time
-from random import randrange, randint
-import threading
+from random import randint
 
 pymysql.install_as_MySQLdb()
-import json
 
 pymysql.install_as_MySQLdb()
 app = Flask(__name__)
@@ -168,12 +163,11 @@ def logout():
     flash('Вы успешно вышли из аккаунта.', 'success')
     return redirect('index')
 
-
 @app.route('/subjects')
+@login_required
 def subjects():
     classes = Class.query.all()
     return render_template('subjects.html', classes=classes)
-
 
 
 @app.route('/notifications')
