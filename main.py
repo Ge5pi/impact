@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import create_engine
 from datetime import datetime
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
-from forms import LoginForm, RegistrationForm
+from forms import LoginForm
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_mail import Mail, Message
 from flask_wtf.csrf import CSRFProtect
@@ -120,9 +120,9 @@ def fake_sender():
             randomvalue.query.filter_by(id=randomval).delete()
             db.session.commit()
         except:
-            print("NOOOOOOO")
+            print("fake_sender_commitment_error")
     except:
-        print("Oh hell no, man, what the fuck")
+        print("fake_sender_db_error")
 
 
 def shedule(func, nth_sec):
@@ -140,14 +140,14 @@ print("ok")
 @app.route("/index", methods=['GET', 'POST'])
 def index():
     form = LoginForm(request.form)
-    print("kekw")
+    print("login opened")
     if request.method == "POST":
         print("POST")
         for l in form:
             print(l)
         print(form.errors)
         db.session.rollback()
-        print("LOGIN LETSGO")
+        print("Login is being proceeded")
         user = User.query.filter_by(email=form.email.data).first()
         if user and user.check_password(form.password.data):
             print("START")
@@ -157,40 +157,8 @@ def index():
         else:
             flash('Неверный email или пароль', 'error')
     else:
-        print("POMOOGITE BLYAT")
+        print("login wrong method")
     return render_template('index.html', form=form)
-
-
-@app.route("/register", methods=['GET', 'POST'])
-def register():
-    form = RegistrationForm(request.form)
-    print("HUUUU")
-    if request.method == "POST":
-        print("POST")
-        for l in form:
-            print(l)
-        print(form.errors)
-        try:
-            db.session.rollback()
-            print("REG LET'S GO")
-            user = User(email=form.email.data, login=form.login.data)
-            user.set_password(form.password.data)
-            user.id = randint(1, 100000000)
-            user.teacher=0
-            print("BD PUSH")
-            db.session.add(user)
-            db.session.commit()
-            print("BD DONE")
-            login_user(user)
-            flash('Регистрация успешна!', 'success')
-            return redirect('/meets-subj1')
-        except Exception as e:
-            print(f"Error adding user to the database: {str(e)}")
-            db.session.rollback()
-            flash('Ошибка регистрации. Возможно, такой пользователь уже существует.', 'error')
-    else:
-        print("TA TI SAEBAL")
-    return render_template('register.html', form=form)
 
 
 @app.route("/logout")
@@ -226,7 +194,6 @@ def class_subjects(class_id):
 def list_courses(subject_id):
     subject = Subject.query.get(subject_id)
     class_info = Class.query.get(subject_id)
-    #print(class_info)
     courses = subject.courses
     return render_template('article.html', subject=subject, courses=courses, class_info=class_info)
 
@@ -300,19 +267,6 @@ def submit_link():
 def faq():
     return render_template('faq.html')
 
-
-@app.route("/new")
-@login_required
-def new():
-    return render_template('new.html')
-
-
-@app.route("/Teachers")
-@login_required
-def teachers():
-    return render_template('Teachers.html')
-
-
 @app.route("/meets-subj1")
 @login_required
 def meets1():
@@ -329,22 +283,6 @@ def meets1():
     else:
         questions = usee.query.order_by(usee.date.desc()).all()
         return render_template('meets.html', questions=questions)
-
-
-
-
-
-@app.route("/footer")
-@login_required
-def footer():
-    return render_template('footer.html')
-
-
-@app.route("/header")
-@login_required
-def header():
-    return render_template('header.html')
-
 
 @app.route("/")
 @app.route("/main")
@@ -383,55 +321,6 @@ def meet_create():
     else:
         return render_template('create-meet.html')
 
-
-'''class_5 = Class.query.filter_by(name="5").first()
-class_6 = Class.query.filter_by(name="6").first()
-class_7 = Class.query.filter_by(name="7").first()
-class_8 = Class.query.filter_by(name="8").first()
-class_9 = Class.query.filter_by(name="9").first()
-
-if not class_5:
-    class_5 = Class(name="5")
-    db.session.add(class_5)
-if not class_6:
-    class_6 = Class(name="6")
-    db.session.add(class_6)
-if not class_7:
-    class_7 = Class(name="7")
-    db.session.add(class_7)
-if not class_8:
-    class_8 = Class(name="8")
-    db.session.add(class_8)
-if not class_9:
-    class_9 = Class(name="9")
-    db.session.add(class_9)
-
-db.session.commit()
-
-class_5 = Class.query.filter_by(name="5").first()
-class_6 = Class.query.filter_by(name="6").first()
-class_7 = Class.query.filter_by(name="7").first()
-class_8 = Class.query.filter_by(name="8").first()
-class_9 = Class.query.filter_by(name="9").first()
-
-if not class_5:
-    class_5 = Class(name="5")
-    db.session.add(class_5)
-if not class_6:
-    class_6 = Class(name="6")
-    db.session.add(class_6)
-if not class_7:
-    class_7 = Class(name="7")
-    db.session.add(class_7)
-if not class_8:
-    class_8 = Class(name="8")
-    db.session.add(class_8)
-if not class_9:
-    class_9 = Class(name="9")
-    db.session.add(class_9)
-
-db.session.commit()
-'''
 if __name__ == '__main__':
     app.run(debug=True)
 
