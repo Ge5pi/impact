@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body{
+  background-color: #fff;
+}
+
+.whole{
+  margin-top: 1%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.sidebar{
+width: 350px;
+  padding-bottom: 10px;
+  position: sticky;
+  max-width: 40%;
+  height: fit-content;
+  border-right: 1px solid #0c7489;
+  border-top: 1px solid #0c7489;
+  background-color: #000;
+  border-radius: 15px;
+}
+
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  margin: 5vh 15% 5vh 15%;
+  flex-direction: column;
+}
+
+
+h2{
+  font-size: 35px;
+  font-weight: bolder;
+}
+
+h3{
+  font-weight:bold;
+}
+
+.header{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.header h3{
+  font-size: 38px;
+}
+
+.header h2{
+  font-size: 44px;
+}
+
+
+.picture{
+    width: 90%;
+}
+
+.main-text{
+  background-color: #fff;
+  
+  font-family: 'Poppins', sans-serif;
+  border-radius: 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+
+
+.sidebar a{
+  text-decoration: none;
+  color: #fff;
+  width: 100%;
+}
+
+.sidebar ul{
+  list-style-type: none;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sidebar li{
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.sidebar li:hover{
+
+  background-color: #ff0000;
+
+}
+
+
+.side-text{
+  border-bottom: 1px solid #fff;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+}
+
+
+.side-text h2{
+color: #fff;
+  margin: 15px;
+  margin-top: 20px;
+}
+
+.side-text h3{
+  margin: 15px;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.main-text img{
+    max-width: 1100px;
+    min-width: 300px;
+    width: 100%;
+
+}
+
+
+@media screen and (max-width: 550px) {
+  h3{
+    font-size: 20px;
+  }
+  
+  h2{
+    font-size: 24px;
+  }
+
+  .sidebar li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+}
+@media screen and (max-width:850px){
+  .whole{
+    flex-direction: column;
+  }
+  .sidebar{
+    width: 100%;
+    max-width: 100%;
+  }
+}
+@media screen and (max-width:1060px){
+  br{
+    display: none;
+  }
+  .whole{
+    margin: 0;
+  }
+}

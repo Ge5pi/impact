@@ -9,7 +9,6 @@
 }
 
 
-/*------------------------------ BODY ----------------------------*/
 body{
   color: #021024;
   font-size: 20px;
@@ -103,8 +102,6 @@ h2{
   color: #fff;
 }
 
-/* ----Teachers---- */
-
 #teachers {
   display: flex;
   justify-content: space-around;
@@ -151,7 +148,6 @@ color: #000;
   vertical-align: super;
 }
 
-/* ----Testimonials---- */
 #testimonials {
  background-color: #000;
   display: flex;
@@ -206,7 +202,6 @@ strong{
     color: #000;
 }
 
-/* ----Companies---- */
 .company-container {
   width: 80%;
   margin: auto;
@@ -234,7 +229,7 @@ a{
     text-decoration: none;
     color: #000;
 }
-/* ----Login---- */
+
 .login-container{
   width: 80%;
   margin: auto;
@@ -271,7 +266,7 @@ a{
   color: #fff;
 }
 
-/* ----FAQ---- */
+
 .faq{
   width: 60%;
   margin: auto;
@@ -298,7 +293,7 @@ details {
     color: #000;
 }
 
-/* ----MEDIA---- */
+
 @media screen and (max-width: 1060px) {
   *,
   *::before,
@@ -330,27 +325,4 @@ details {
   }
 }
 
- /* details {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color:#021024;
-  border: none;
-  border-radius: 4px;
-  box-shadow: 0 2px 5px rgba(2, 16, 36, 1);
- }
- 
- summary {
-  color:#021024;
-  font-weight: bold;
-  padding: 10px;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
- }
- 
- summary::before {
-  color: #ccc;
- } */
  
