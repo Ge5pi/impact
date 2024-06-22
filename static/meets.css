@@ -80,7 +80,7 @@ blockquote p::after {
 
 
 .btn-get{
-    width: 100%;
+    width: 40%;
     background-color: #000;
     border: 0px;
     border-radius: 15px;
@@ -154,7 +154,7 @@ blockquote p::after {
     margin-bottom: 1%;
 }
 
-@media screen and (max-wodth:1060px){
+@media screen and (max-width:1060px){
   .linkk{
     flex-direction: column;
     gap: 10px;

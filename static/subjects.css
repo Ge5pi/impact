@@ -47,18 +47,18 @@
 
 .subject-col-col{
   border-radius: 20px;
-  width: 30%;
-  justify-content: space-between;
+  width: wrap-content;
+  justify-content: center;
   display: flex;
   flex-direction: row;
   border: 2px solid #111;
-
+  padding: 2%;
   text-align: center;
 }
 
 .subject-col-col p{
-    width: 50%;
-    font-size: 40px;
+    font-size: 60px;
+    margin: 0 30px;
 }
 
 .subject-col a{
@@ -81,20 +81,12 @@
 
 
 
-@media screen and (max-width: 1610px){
-    .subject-col-col p{
-        font-size: 24px;
-    }
-}
-@media screen and (max-width: 1080px){
-    .subject-col-col p{
-        font-size: 16px;
-    }
-}
+
 @media screen and (max-width: 1060px){
   body{
-    background-color: #bce6ee;
+    background-color: #fff;
   }
+
 }
 @media screen and (max-width: 820px){
   .subject-col{
@@ -109,9 +101,7 @@
     .subject-col{
     flex-direction: column;
     }
-    .subject-col-col p{
-        border-bottom: 1px solid #000;
-    }
+
 }
 @media screen and (max-width:370px){
   .subject-col a{
